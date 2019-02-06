@@ -20,6 +20,7 @@ namespace FitnessOnline.Areas.Admin.Controllers
         //GET
         public async Task<IActionResult> Index()
         {
+            //
             return View(await _dbContext.SubscriptionType.ToListAsync());
         }
 
