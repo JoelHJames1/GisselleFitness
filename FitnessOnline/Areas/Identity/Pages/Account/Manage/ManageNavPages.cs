@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using FitnessOnline.Models;
 
 namespace FitnessOnline.Areas.Identity.Pages.Account.Manage
 {

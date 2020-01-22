@@ -7,9 +7,31 @@
   </PropertyGroup>
 
 
+
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Views\ManageUser\" />
+    <Folder Include="Areas\Admin\Views\ManageMeal\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Shared\_DeleteAndBackToListButton.json" />
+    <Content Remove="wwwroot\images\MealPlan.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Migrations\20190207192723_AddedGuids.cs" />
+    <Compile Remove="Migrations\20190208034207_initialCreate.cs" />
+    <Compile Remove="Migrations\20190208223802_initialCreate.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\images\MealPlan.jpg" />
+  </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.0" />
   </ItemGroup>
 

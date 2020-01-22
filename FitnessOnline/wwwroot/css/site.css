@@ -55,8 +55,9 @@ body {
   line-height: 60px; /* Vertically center the text there */
 }
 
-.search-background{
-    background: url('/images/pattern.png');
+.search-background {
+    /* background: url('/images/pattern.png'); */
+    background-color: #fff;
 }
 
 .backgroundWhite {
@@ -68,7 +69,7 @@ body {
 .backgroundWhiteBorder {
     background-color: white;
     padding: 30px;
-    border-radius: 10px;
+    border-radius: 40px;
     margin-bottom: 30px;
     border: 1px solid #ddd;
 }

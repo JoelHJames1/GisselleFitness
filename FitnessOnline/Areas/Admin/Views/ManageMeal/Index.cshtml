@@ -1,5 +1,71 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model IEnumerable<MealPlan>
+
 @{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+<br /><br />
+<div class="border backgroundWhite">
+    <div class="row">
+        <div class="col-6">
+            <h2 class="text-info">Meal Plans</h2>
+        </div>
+        <div class="col-6 text-right">
+            <partial name="_CreateButtonPartial" />
+        </div>
+    </div>
+    <br />
+    <div>
+        @if (Model.Count() > 0)
+        {
+            <table class="table table-striped border">
+                <tr class="table-secondary">
+                    <th>
+
+                        @Html.DisplayNameFor(m => m.ApplicationUser.ProfileImage)
+
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(m => m.ApplicationUser.FirstName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(m => m.ApplicationUser.LastName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(m => m.Name)
+
+                    </th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                        <img src="@Url.Action("UserPhotos", "ManageUser", new { id = item.ApplicationUser.Id } )" height="48" width="48" />
+                    </td>
+                    <td>
+                       
+                        @Html.DisplayFor(m => item.ApplicationUser.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.ApplicationUser.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => item.Name)
+                    </td>
+                    <td>
+                        <partial name="_TableButtonPartial" model="item.Id" />
+                    </td>
+                </tr>
+                }
+            </table>
+        }
+        else
+        {
+            <p>No Meal Plan exists...</p>
+        }
+    </div>
+</div>
+

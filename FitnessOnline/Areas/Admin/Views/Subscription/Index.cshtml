@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SubscriptionType>
+﻿@model IEnumerable<Subscription>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -9,7 +9,7 @@
 <div class="border backgroundWhite">
     <div class="row">
         <div class="col-6">
-            <h2 class="text-info"> Subcription Types</h2>
+            <h2 class="text-info"> Manage Subscriptions</h2>
         </div>
         <div class="col-6 text-right">
             <partial name="_CreateButtonPartial" />
@@ -25,6 +25,10 @@
                     @Html.DisplayNameFor(m => m.Name)
                 </th>
                 <th>
+                    @Html.DisplayNameFor(m => m.Price)
+                </th>
+                <th>
+
                 </th>
                 <th>
 
@@ -37,7 +41,10 @@
                         @Html.DisplayFor(m => item.Name)
                     </td>
                     <td>
-                        EDIT | DELETE | DETAILS
+                        @Html.DisplayFor(m => item.Price)
+                    </td>
+                    <td>
+                        <partial name="_TableDeleteButtonOnlyPartial" model="item.Id" />
                     </td>
                 </tr>
             }

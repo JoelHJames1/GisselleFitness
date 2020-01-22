@@ -1,11 +1,10 @@
-﻿@{
+﻿@model FitnessOnline.Models.ViewModel.IndexViewModel
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    @*<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>*@
-</div>
+
 
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
@@ -33,3 +32,12 @@
         <span class="sr-only">Next</span>
     </a>
 </div>
+
+<br />
+
+<div class="backgroundWhite container">
+<div class="row" id="menu-wrapper">
+    <partial name="_ThumbnailAreaPartial" model="@Model.Subscription" />
+</div>    
+</div>"
+

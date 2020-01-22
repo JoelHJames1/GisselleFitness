@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - FitnessOnline</title>
+    <title>@ViewData["Title"] - Gisselle Fitness</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -23,7 +23,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">FitnessOnline</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Gisselle Fitness</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -32,21 +32,33 @@
                     <partial name="_LoginPartial" />
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <img src="@Url.Action("UserPhotos", "Home", new { Area = "Customer" } )" style="width:50px;height:50px; background: #FFFFFF;
+    margin: auto;
+    -moz-border-radius: 4px;
+    border-radius: 100px;
+    padding: 1px;
+    box-shadow: 0px 0px 2px #888;" />
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-white" asp-area="Customer" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
+                        @*<li class="nav-item">
+                            <a class="nav-link text-white" asp-area="Customer" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>*@
+                        @if (User.Identity.IsAuthenticated)
+                        {
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropDownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Admin Management
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropDownMenuLink">
-                                <a class="dropdown-item" asp-action="Index" asp-controller="SubscriptionType" asp-area="Admin"> Subscriptions </a>
-                                <a class="dropdown-item"> Clients </a>
+                                <a class="dropdown-item" asp-action="Index" asp-controller="Subscription" asp-area="Admin"> Manage Subscriptions </a>
+                                <a class="dropdown-item" asp-action="Index" asp-controller="ManageMeal" asp-area="Admin"> Manage Meals </a>
+                                <a class="dropdown-item" asp-action="Index" asp-controller="ManageUser" asp-area="Admin"> Manage Users </a>
                                 <a class="dropdown-item"> Scheduled Appointments </a>
                             </div>
                         </li>
+                        }
                     </ul>
                 </div>
             </div>
@@ -66,10 +78,12 @@
     </footer>
 
     <environment include="Development">
+        <script src="https://cloud.tinymce.com/5/tinymce.min.js?apiKey=ccyyqd84l7uogxz71ffvg9bexondkj50shm296b9a6q4gydl"></script>
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
     </environment>
     <environment exclude="Development">
+        <script src="https://cloud.tinymce.com/5/tinymce.min.js?apiKey=ccyyqd84l7uogxz71ffvg9bexondkj50shm296b9a6q4gydl"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
                 asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
                 asp-fallback-test="window.jQuery"
